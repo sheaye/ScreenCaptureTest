@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements ScreenCaptureFrag
                 mCaptureFragment.startCapture(this);
                 break;
             case R.id.capture_with_cache:
-                Bitmap bitmap = ViewCaptureUtil.capture(mDecorView);
+                Bitmap bitmap = ViewCaptureUtil.capture(this);
                 if (bitmap != null) {
                     mImageView.setImageBitmap(bitmap);
                 }else {

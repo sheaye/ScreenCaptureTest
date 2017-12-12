@@ -1,5 +1,6 @@
 package com.xinyan.test;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.view.View;
 
@@ -18,5 +19,13 @@ public class ViewCaptureUtil {
         bitmap = Bitmap.createBitmap(bitmap);
         view.setDrawingCacheEnabled(false);
         return bitmap;
+    }
+
+    public static Bitmap capture(Activity activity) {
+        if (activity == null) {
+            return null;
+        }
+        View decorView = activity.getWindow().getDecorView();
+        return capture(decorView);
     }
 }
