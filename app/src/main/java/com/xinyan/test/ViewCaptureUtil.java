@@ -9,7 +9,10 @@ import android.view.View;
 
 public class ViewCaptureUtil {
 
-    public static Bitmap capture(View view){
+    public static Bitmap capture(View view) {
+        if (view == null) {
+            return null;
+        }
         view.setDrawingCacheEnabled(true);
         Bitmap bitmap = view.getDrawingCache();
         bitmap = Bitmap.createBitmap(bitmap);
