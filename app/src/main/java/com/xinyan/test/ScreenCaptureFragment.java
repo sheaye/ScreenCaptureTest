@@ -194,6 +194,11 @@ public class ScreenCaptureFragment extends Fragment {
             }
         }
 
+        @Override
+        protected void onCancelled() {
+            isRunning = false;
+        }
+
         public boolean isRunning() {
             return isRunning;
         }
@@ -208,7 +213,7 @@ public class ScreenCaptureFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (mImageToBitmapTask != null && !mImageToBitmapTask.isCancelled()) {
+        if (mImageToBitmapTask != null && !mImageToBitmapTask.isRunning()) {
             mImageToBitmapTask.cancel(true);
             mImageToBitmapTask = null;
         }
